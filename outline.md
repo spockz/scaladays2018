@@ -11,18 +11,20 @@
         *   Deployment process, CDaaS pipeline, out-of-scope for here
     *   Founding Principles
         *   Global Addressable & Routable name/ip space
+        *   Consuming APIs should be as convenient for Internal Developer as for an external one.
+            * Finding instances, load-balancing, up-time, etc.
         *   Set of modular, cherry-pickable components and an off-the-shelf framework providing SDK for Global, 
             *   Ofts framework Spring-Boot
-            *   Makes service loading hard
-        *   Everything should sufficient => Sgined AT and PT
-            *   Toch permissions api
-    *   Problem
+            *   Stick with framework idiomatic ways
+            *   Note: Makes service loading hard to use
+        *   Everything should sufficient => Signed AT and PT
+            *   Touch on Permissions api that we cannot do that everywhere
+    *   Mission Statement
         *   Help teams that build apis deliver business value
             *   Securely
             *   Resiliently
             *   Expose and Consume with minimal effort
 *   Terminology: The Meta-Model
-
     *   API, Endpoint, Service, Service Version, Instance etc.
     *   Quickly, point to Patrice's presentation
 *   Developer Overview
@@ -35,11 +37,11 @@
         *   Secure with mTLS
         *   REST/HTTP/JSON
     *   Big Picture including Dev Portal + Connections + ED + Tracing + Logs
-        *   Mandatory, however robust it is, you still need observabiltiy for everhything you didn't catch
+        *   Mandatory, however robust it is, you still need observability for everything you didn't catch
 
     *   Start building up the picture in the next slides
 *   Releasing
-    *   Backwards Compatability       
+    *   Backwards Compatibility       
         *   Requirement:
             *   Client: Don't break on extra data in response
             *   Server: Don't break on extra data in requests
