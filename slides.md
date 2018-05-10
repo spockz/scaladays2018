@@ -9,8 +9,8 @@
     <div>
         <ul>
             <li>Proud father</li>
-            <li>(Functional) Programming evangelist at ING Bank</li>
-            <li>API Platform Lead Engineer</li>
+            <li>(Functional) Programming evangelist</li>
+            <li>API Platform Lead Engineer @ ING</li>
             <li>Functional and Reactive programming teacher</li>
         </ul>
     </div>
@@ -25,29 +25,44 @@
 
 ^^^
 
+### Contributions
+
+* Disclaimer
+* All nice pictures are by [Beryl Ho](link here todo)
+* ?
+
+^^^
+
 ### Context
 
 * Size of ING group and the amount of developers
     * X countries
     * Y development teams
     * Z different products
-* Unify IT landscape into 1
+    * Much History
+* Morph IT landscape into homogeneous landscape
 * Started in 2016 (?)
-* Not about CD or Deployment Stack
+* This talk is about the SDK and API Suite (todo: clarify)
 
 ^^^
 
-### Founding Principles
-*   Global Addressable & Routable name/ip space
+### Principles
+
+*   Everything should be self-sufficient => Signed AT and PT
+    *   Touch on Permissions api that we cannot do that everywhere
 *   Consuming APIs should be as convenient for Internal Developer as for an external one.
     * Finding instances, load-balancing, up-time, etc.
+
+^^^
+
+### Technical Principles
+
+*   Global Addressable & Routable name/ip space
+*   No Network Trust (Todo: how did Google call this?) => mTLS everywhere
 *   Set of modular, cherry-pickable components and an off-the-shelf framework providing SDK for Global, 
     *   Ofts framework Spring-Boot
     *   Stick with framework idiomatic ways
     *   Note: Makes service loading hard to use
-
-*   Everything should be self-sufficient => Signed AT and PT
-    *   Touch on Permissions api that we cannot do that everywhere
 
 ^^^
 
@@ -67,7 +82,33 @@
 
 ^^^
 
-*   Quickly, point to Patrice's presentation
+### Further Material
+
+[API Versioning for Zero Downtime](https://www.youtube.com/watch?v=RvcDs_JLc0Y) – Patrice Krakow ([@patricekrakow](https://twitter.com/patricekrakow)).
+
+
+===
+
+## Developer Landscape
+
+^^^
+
+### Principles
+
+* Globally Addressable and Routable namespace
+* Internal Dev == External Dev (todo: clear in wording)
+* Zero Trust Networking (mTLS everywhere)
+* REST/HTTP with JSON
+
+Note:
+- Could be interpreted as internal applications use LB as well...
+
+
+^^^
+
+<!-- .slide: style="background-size: contain"  data-background="images/network-landscape/network-landscape-start.svg" -->
+
+^^^
 
 
 
@@ -84,20 +125,13 @@
 
 
 
+===
 
+## Concluding
 
+^^^
 
-
-
-
-
-
-
-
-
-
-
-
+* Yes, we are hiring :)
 
 
 

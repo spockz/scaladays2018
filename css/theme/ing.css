@@ -47,36 +47,31 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 
 .reveal .footer-container {
-  left: 45%;
+
   top: auto;
   bottom: 0;
   right: auto;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.9);
   color: #a8a8a8;
-  margin-left: 10%;
-  margin-right: 50%;
   bottom: 0em;
   /*left: 1em;*/
-  height: 60px;
-  min-width: 85%;
-  max-width: 85%;
-  margin-left: auto;
-  margin-right: auto;
-  transform: translate(-50%, 0) scale(0.8448);
+  height: 25px;
+  min-width: calc(100% - 237px);
   }
   .reveal .footer-container::after {
     background: url('../../images/logo.hd.png') no-repeat;
     background-position-y: bottom;
     background-size: contain;
     width: 238px;
-    height: 50px;
+    height: 40px;
     display: block;
     content: "";
     position: relative;
-    right: -288px;
-    top: -11px;
+    right: -258px;
+    top: -9px;
     float: right;
+    font-size: 50%;
   }
   
 .reveal .footer-container .footer-text {
@@ -84,7 +79,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   height:60px;
   width:100%;
   color: #a8a8a8 !important;
-  font-size: 24px;
+  font-size: 20px;
   position: absolute;
   border:0;
   /*border-top: 1px solid #a8a8a8;*/
@@ -95,10 +90,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .footer-text > span {
   color: #a8a8a8 !important;
-  font-size: 24px;
+  font-size: 20px;
   position: absolute;
-  top: 12px;
-  left: 12px; }
+  top: 9px;
+  left: 15px; }
 
 .footer > div {
   position: absolute;

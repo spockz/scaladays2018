@@ -47,26 +47,25 @@
                  	data-separator-vertical="^\n\^\^\^\n"
 					data-separator-notes="^Note:"
 					data-charset="utf-8">
+					
 				<!--
 					Note that Windows uses `\r\n` instead of `\n` as its linefeed character.
 					For a regex that supports all operating systems, use `\r?\n` instead of `\n`.
 				-->
 			</section>
 			</div>
-			
-
 			<div class="footer-container">
 
-						<div class="footer-text">
-							<span>Secure and Resilient APIs</span>
-						</div>
-				
-			</div>
+				<div class="footer-text">
+					<span>Secure and Resilient APIs</span>
+				</div>
+		
+	</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
-
+		
 		<script>
 			
 			// More info about config & dependencies:
@@ -76,7 +75,7 @@
 				controls: true,
 				progress: true,
 				history: true,
-				center: true,
+				center: false,
 
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
@@ -86,6 +85,13 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+
+			head.ready(function() {
+				footerContainer = document.querySelector(".footer-container");
+				document.querySelector(".slides").appendChild(document.querySelector(".footer-container"));
+				// footerContainer.remove();
+			});
 		</script>
+
 	</body>
 </html>
