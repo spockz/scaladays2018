@@ -28,7 +28,7 @@
     *   API, Endpoint, Service, Service Version, Instance etc.
     *   Quickly, point to Patrice's presentation : https://www.youtube.com/watch?v=RvcDs_JLc0Y
 *   Landscape
-    *   Principles:
+    *   Key Principles:
         *   Global namespace: names and routing
         *   Developers internally as easy as externally:
             *   Downtime / releases
@@ -38,9 +38,6 @@
             *   Touch on Permissions api that we cannot do that everywhere
         *   Secure with mTLS (Zero Trust Networking)
         *   REST/HTTP/JSON
-    *   Big Picture including Dev Portal + Connections + ED + Tracing + Logs
-        *   Mandatory, however robust it is, you still need observability for everything you didn't catch
-
     *   Start building up the picture in the next slides
         * Just API X
         * Add the implementing service(S!) A
@@ -67,10 +64,11 @@
         * Add Access Token slide explaining what it is; skip the how to identify but say multiple means
             * JWE
         * Pass the access token along browser/gw/Svc B/Svc A
+            * Gateway does coarse grained check based on scopes
         * Slide with different amount of products context
         * Introduce permissions API which checks permissions
         * Add slide with all the monitoring stuff
-        * Remove all the release stuff
+        * Remove all the monitoring stuff
         *   Releasing
             *   Backwards Compatibility       
                 *   Requirement:
@@ -122,7 +120,8 @@
     *   We are not blind man, even though bank! Integration with Kubernetes (near!)
     *   Investigate tunables, which conflict with immutable containers somewhat
     *   Idempotent POSTs with UUIDs and framework-provided 'transactions' and use nack headers
-    *   HTTP2   
+    *   Moving towards HTTP2   
+    *   gRPC
     
     
 ToDo Mentions:

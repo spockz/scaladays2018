@@ -16,6 +16,7 @@
     </div>
     <div style="text-align:center">
         <img src="images/alessandro.jpg" style="border-radius: 50%; width:50%">
+        <img src="images/v3/girl.svg" style="width:50%">
     </div>
 </div>
 
@@ -78,7 +79,18 @@
 
 ^^^
 
-*   API, Endpoint, Service, Service Version, Instance etc.
+* *API*<br>
+    * Specification of endpoints<br><!-- .element: class="fragment" -->
+    * Swagger <!-- .element: class="fragment" -->
+* <!-- .element: class="fragment" --> *Endpoint*<br>
+    * <!-- .element: class="fragment" --> A single host, method, and pathTemplate
+* <!-- .element: class="fragment" --> *Service*<br>
+    * <!-- .element: class="fragment" --> A named and owned entity
+* <!-- .element: class="fragment" -->*Service Version*<br>
+    * <!-- .element: class="fragment" --> Specific version of a service implementing one or more endpoints
+* <!-- .element: class="fragment" --> *Instance*<br>
+    * <!-- .element: class="fragment" --> Process hosting a specific Service Version
+
 
 ^^^
 

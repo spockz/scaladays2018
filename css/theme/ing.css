@@ -52,7 +52,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   bottom: 0;
   right: auto;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #FFFF; /* rgba(255, 255, 255, 0.9);*/
   color: #a8a8a8;
   bottom: 0em;
   /*left: 1em;*/
