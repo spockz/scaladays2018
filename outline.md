@@ -86,13 +86,13 @@
     *   Resilience
         *   Mention: Use signed access tokens and peer tokens to avoid runtime dependency on Sessions DB and Developer Portal
             * This means that it should also be part of the architecture
-        *   Finagle pretty good out of the box, can be better (esp. quicker timeouts and more your own program view)
+        *   Finagle pretty good out of the box, can be better (esp. tighter timeouts and more your own program view) (? What was this about again???)
         *   Setting timeouts! + code
         *   Use Response Classifiers
             *   Java friendly classifier
         *   Response Classification Filter Transforming
             * Watch out for downing instances because of functional errors, it might cut off traffic for normal customers because of one bad apple
-        *   PhoenixClient + Spring Boot => DeferringResolver
+        *   PhoenixResolver + Spring Boot => DeferringResolver
         *   Education, education, education
         *   Lessons learned: 
             *   You really don't want opaque load-balancers
