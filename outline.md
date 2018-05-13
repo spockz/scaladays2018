@@ -57,8 +57,7 @@
         * Add the manifest on the registration line
         * Line between B and A
         * Add mutualTLS lock
-        * Guy selecting the peertoken
-        * Big PeerToken image explain what it does
+        * Guy selecting the peertoken (includes Big PeerToken image explain what it does)
         * Add PeerToken on line SVC B -> SVC A
         * Add Gateway with www cloud, site, and api domain
         * Add Access Token slide explaining what it is; skip the how to identify but say multiple means

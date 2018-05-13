@@ -81,11 +81,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   }
   
 .reveal .footer-container .footer-text {
-  font-size: 0.5em;
   height:60px;
   width:100%;
   color: #a8a8a8 !important;
-  font-size: 20px;
+  font-size: 16px;
   position: absolute;
   border:0;
   /*border-top: 1px solid #a8a8a8;*/
@@ -97,10 +96,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .footer-text > span {
   color: #a8a8a8 !important;
-  font-size: 20px;
+  font-size: 14px;
   position: absolute;
-  top: 9px;
-  left: 15px; }
+  top: 11px;
+  left: 17px; }
 
 .footer > div {
   position: absolute;
@@ -112,6 +111,14 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   width: 160px;
   height: 40px;
   border-radius: 0 !important; }
+
+.reveal .slides blockquote {
+  border-left: 3px solid rgb(118, 118, 118)
+}
+
+.reveal .slides blockquote p {
+  margin: 20px;
+}
 
 /*********************************************
  * GLOBAL STYLES
