@@ -137,6 +137,38 @@ Note:
 -  mTLS everywhere
 
 ^^^
+<!-- .slide: class="center" -->
+## Intermezzo
+
+^^^
+
+## Mommy, Candy?
+<!-- .slide: data-background="images/v1/Candy_01.svg" -->
+
+^^^
+
+## Daddy, Candy?
+<!-- .slide: data-background="images/v1/Candy_02.svg" -->
+
+Note:
+* I trust my daughter. Also to be innovative in ways to get more candy
+
+^^^
+
+## Let's see
+<!-- .slide: data-background="images/v1/Candy_03.svg" -->
+
+^^^
+
+## Success!
+<!-- .slide: data-background="images/v1/Candy_04.svg" -->
+
+^^^
+<!-- .slide: class="center" -->
+## </ Intermezzo >
+
+
+^^^
 
 ## In the beginning..
 
