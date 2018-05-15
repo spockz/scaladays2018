@@ -111,7 +111,7 @@
         *   Code for setting up mutualTLS connection
         *   ClientSessionVerifier => ServiceNameVerifier
         *   PeerTokens
-        *   Confidence Checking only allow instnaces known to Endpoint Discovery
+        *   Confidence Checking only allow instances known to Endpoint Discovery
             *   Block $inet resolver
 *   Future
     *   SLA in PeerToken

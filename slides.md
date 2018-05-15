@@ -1,5 +1,6 @@
 <!-- .slide: class="center" -->
 # Building Secure and Resilient APIs
+#### Using Finagle
 
 ===
 
@@ -10,8 +11,8 @@
         <ul>
             <li>Proud father</li>
             <li>(Functional) Programming evangelist</li>
-            <li>Lead Engineer @ ING API Platform</li>
             <li>Functional and Reactive programming teacher</li>
+            <li>Global API SDK Lead Engineer @ Global API Platform</li>
         </ul>
     </div>
     <div style="text-align:center">
@@ -25,7 +26,7 @@
 ## Credits
 
 * @Team API Suite members
-* Amazing pictures by [Beryl Ho](https://www.linkedin.com/in/berylho)
+* Amazing pictures by [Beryl Ho](https://www.instagram.com/bee.visual/)
 
 ===
 <!-- .slide: class="center" -->
@@ -36,39 +37,50 @@
 ## Context
 
 * Size of ING group and the amount of developers
-    * X countries
-    * Y development teams
-    * Z different products
+    * 25+ countries
+    * 300 development teams
+    * Many different products
     * Much History
 * Morph IT landscape into homogeneous landscape
-* Started in 2016 (?)
-* This talk is about the SDK and API Suite (todo: clarify)
+* Started in 2016
 
 ^^^
 
 ## Technical Context
 
 *   Zero Trust Networking
+*   Pretty good IT infrastructure
 *   APIs build on top of Global API SDK
+    * Build in Scala
     * Toolkit: Set of modular, cherry-pickable components 
     * Frameworks:
         * Java: Spring-Boot based
         * Scala: Finch based
-        and an off-the-shelf framework providing SDK for Global, 
-    *   Spring-Boot based off the shelf framework
-    *   Stick with framework idiomatic ways
-*   Pretty good IT infrastructure
+    *   Promise to Stick with framework idiomatic ways
+
+*  <!-- .element: class="fragment" -->  Enable teams to deliver business value with APIs;
+   Securely, Resilient, with Minimal Effort
+
 
 Note:
 * BeyondCorp
-* My team provides 
+* My team provides this Global API SDK
 * IT Infrastructure: things work or they fail hard
 
 ^^^
 
+## Overview
+
+* Terminology
+* Application Landscape
+* Finagle Extensions
+* Lessons Learned
+* Additional Measures
+*
+
 ## Out of scope
 
-* Naming conventions part of Designing APIs (UX?)
+* Naming conventions part of Designing APIs
 * Security Scans
 * Release strategies
 
@@ -77,12 +89,6 @@ Note:
 * Out of scope for this talk
 * How to exactly execute strategies such as canary releases
 
-^^^
-
-## Mission Statement
-
-> Enable teams to deliver business value with APIs;<br>
-> &nbsp; – Secure, Resilient, Minimal Effort
 
 ===
 <!-- .slide: class="center" -->
@@ -93,16 +99,18 @@ Note:
 ## The Meta-Model
 
 * *API*<br>
-    * Specification of endpoints<br><!-- .element: class="fragment" -->
+    * <!-- .element: class="fragment" --> Specification of *endpoints*<br>
     * Swagger <!-- .element: class="fragment" -->
 * <!-- .element: class="fragment" --> *Endpoint*<br>
-    * <!-- .element: class="fragment" --> A single host, method, and pathTemplate
+    * <!-- .element: class="fragment" --> host (e.g. `api.ing.com`)
+    * <!-- .element: class="fragment" --> method (e.g. `GET`|`PUT`|`POST`|`PATCH`|`..`)
+    * <!-- .element: class="fragment" --> pathTemplate (e.g. `/accounts/{accountId}`)
 * <!-- .element: class="fragment" --> *Service*<br>
-    * <!-- .element: class="fragment" --> A named and owned entity
+    * <!-- .element: class="fragment" --> A named logical component, owned by a team consisting of one to many versions
 * <!-- .element: class="fragment" -->*Service Version*<br>
-    * <!-- .element: class="fragment" --> Specific version of a service implementing one or more endpoints
+    * <!-- .element: class="fragment" --> Specific version of a *service* implementing one or more *endpoints* from one or more API (specifications)
 * <!-- .element: class="fragment" --> *Instance*<br>
-    * <!-- .element: class="fragment" --> Process hosting a specific Service Version
+    * <!-- .element: class="fragment" --> Running code implementing a specific *Service Version*
 
 
 ^^^
@@ -124,7 +132,7 @@ Note:
 ## Principles
 
 * Globally Addressable and Routable namespace
-* Internal = External
+* Internal &asymp; External
 * Zero Trust Networking
 * Autonomicity
 * REST/HTTP with JSON
@@ -137,6 +145,15 @@ Note:
 -  mTLS everywhere
 
 ^^^
+
+## Resilience
+* Provided by Finagle
+    * Performant
+    * Load-Balancing
+    * Retries
+    * Circuit-Breaking
+
+^^^
 <!-- .slide: class="center" -->
 ## Intermezzo
 
@@ -147,7 +164,7 @@ Note:
 
 ^^^
 
-## Daddy, Candy?
+## Daddy, Candy!
 <!-- .slide: data-background="images/v1/Candy_02.svg" -->
 
 Note:
@@ -162,6 +179,9 @@ Note:
 
 ## Success!
 <!-- .slide: data-background="images/v1/Candy_04.svg" -->
+
+Note:
+* This is an example of autonomous parts improving resilience
 
 ^^^
 <!-- .slide: class="center" -->
@@ -215,11 +235,12 @@ Note:
 
 ^^^
 
-TODO: Insert Registry screenshot
+<!-- .slide: data-background="images/v4/registry.svg" -->
 
 ^^^
 
-TODO: Insert picture with guy selecting the manifest
+<!-- .slide: data-background="images/v4/menu_and_receipt_02.svg" -->
+
 
 ^^^
 
@@ -245,6 +266,10 @@ TODO: Insert picture with guy selecting the manifest
 ## Connect A & B
 <!-- .slide: data-background="images/network-landscape/network-landscape-connectionab.svg" -->
 
+Note:
+* In order to be resilient we use Finagle for load-balancing and retries.
+* We retry automatically when it is safe according to REST guidelines
+
 ^^^
 
 ## Securely ...
@@ -253,7 +278,7 @@ TODO: Insert picture with guy selecting the manifest
 
 ^^^
 
-<!-- .slide: data-background="images/v2/menu-and-receipt_02.svg" -->
+<!-- .slide: data-background="images/v4/menu_and_receipt_01.svg" -->
 
 Note:
 * Subscribe to any positive number of endpoints. When approved you obtain your PeerToken
@@ -299,8 +324,10 @@ Note:
 
 * Thousands of business rules
 * Open vs Closed questions
+    * What can I do?
+    * Can I do X?
 * Very hard to distribute per API
-* Central API; Distributed Deployment
+* Highly scaled and distributed Central API
 
 Note:
 
@@ -327,30 +354,39 @@ Note:
 
 Note:
  *   Backwards Compatibility       
-                *   Requirement:
-                    *   Client: Don't break on extra data in response
-                    *   Server: Don't break on extra data in requests
+    *   Client: Don't break on extra data in response
+    *   Server: Don't break on extra data in requests
 * Our default client is implemented using this
 
 ^^^
 
-### Confidence Checking
+## Confidence Checking
 
 <!-- .slide: data-background="images/network-landscape/network-landscape-confidencecheck-request.svg" -->
 
 ^^^
 
-### Confidence Checking
+## Confidence Checking
 
 <!-- .slide: data-background="images/network-landscape/network-landscape-confidencecheck-success.svg" -->
 
 
 ^^^
 
-### Monitoring
+## Observability
 
 <!-- .slide: data-background="images/network-landscape/network-landscape-monitoring.svg" -->
 
+
+^^^
+
+## Useful metrics
+
+* `failures`
+* `scheduler/blocking_ms`
+* `loadbalancer/size` == `loadbalancer/busy`
+* `retries`
+* See [metrics docs](https://twitter.github.io/finagle/guide/Metrics.html)
 
 ===
 
@@ -362,6 +398,29 @@ Note:
 * Finagle is already quite resilient by default but can be more performant
 * We added some things particular to our stack and our java consumers
 * Caveat: all code is pretty low-level, no cats inside :)
+
+^^^
+
+## Global API SDK
+
+* Used by ING teams globally
+* Primarily developed in Scala
+* Serves both Java and Scala development teams
+
+^^^
+
+## Why Finagle
+
+* Out of the Box
+    * Performant
+    * Load-Balancing
+    * Retries
+    * Circuit-Breaking
+* Easily extensible:
+    * Metrics
+    * Endpoint Discovery
+* Towards Scala with Finagle @ Scala Exchange 2015 ([slides](http://spockz.github.io/towards-finagle/), [video](https://skillsmatter.com/skillscasts/6953-towards-finagle-at-ing-bank))
+
 
 ^^^
 
@@ -386,6 +445,8 @@ trait AbstractHttpResponseClassifier extends PartialFunction[ReqRep, ResponseCla
 ```
 
 ```scala
+def constantClassifier(responseClass: ResponseClass): ResponseClassifier 
+
 def scopeToRequest(requestScope: Request => Boolean,
                    classifier: ResponseClassifier): ResponseClassifier
 
@@ -394,8 +455,6 @@ def scopeToResponse(responseScope: Response => Boolean,
 
 def scopeToThrow(throwableScoping: Throwable => Boolean,
                  classifier: ResponseClassifier): ResponseClassifier
-
-def constantClassifier(responseClass: ResponseClass): ResponseClassifier 
 
 @varargs
 def classifyHttpResponseStatusAs(classification: ResponseClass)
@@ -420,26 +479,34 @@ Note:
 
 ^^^
 
-## Service Discovery integration
+## Endpoint Discovery integration
+
+* <!-- .element: class="fragment" --> Finagle uses `Resolver`s for finding instances
+* <!-- .element: class="fragment" --> `Resolver::bind(arg: String): Var[Addr]`
+* <!-- .element: class="fragment" --> `Var[Addr]` is an updatable set of `Addr`
+* <!-- .element: class="fragment" --> `Addr` can be `Pending`, `Negative`, `Failed`, or `Bound`
+* <!-- .element: class="fragment" --> `Bound` contains a set of addresses with metadata
 
 ```scala
-Http.client.newService("phoenix!api.ing.com:GET:/services/{name}")
+Http.client.newService("phoenix!api.ing.com:GET:/accounts/{accountId}")
 ```
+<!-- .element: class="fragment" --> 
 
----
-
-* PhoenixResolver
-* TODO
+Note:
+* Re-using the HTTP client to call Endpoint Discovery and use the results
+* Bootstrapping down by initiating the Name/Var
 
 ^^^
 
 ## DeferringResolver
 
-* Java's Service Loading is not idiomatic to all frameworks
-    * e.g. Spring Boot
-* Defer loading of the PhoenixResolver until when it can be configured
-  framework idiomatically and set
-* Until the actual resolver is set all `Var`s are started with `Pending`.
+* Finagle's Resolvers are loaded with Service Loading
+* Java's Service Loading is not idiomatic to Spring Boot
+* Created `DeferringResolver` to buffer queries and switch streams to a to be set actual resolver.
+
+Note:
+
+* Example of another thing to think of when serving a wide set of customers
 
 ^^^
 
@@ -457,6 +524,8 @@ Http.client.newService("phoenix!api.ing.com:GET:/services/{name}")
 class HostnameVerifier(checker: HostnameChecker) extends SslClientSessionVerifier  {
   ..
 }
+
+Http.client.configured(SslClientSessionVerifier.Param(..).mk());
 ```
 
 Note:
@@ -464,34 +533,20 @@ Note:
 
 ^^^
 
-## Powerful DTAB
+## Powerful Delegation Tables (DTAB)
 
-> With great power comes great responsability — [QI](https://quoteinvestigator.com/2015/07/23/great-power/)
+> With great power comes great responsibility — [QI](https://quoteinvestigator.com/2015/07/23/great-power/)
 
-```
-/paymentService => /$/inet/mymalicious.host/1337
-```
-<!-- .element: class="fragment" -->
+<pre>
+<code data-trim data-noescape class="bash">
+/paymentService => /$/inet/<strong>mymalicious.host</strong>/1337 # bad
+</code></pre>
+<!-- .element: class="fragment" --> 
 
-^^^
-
-## DTAB Validation
-
-```
-/endpoint/api.ing.com/POST/payments => /$/inet/mymalicious.host/1337 # Wrong
-
-/endpoint/api.ing.com/POST/payments => 
-  /endpoint/api.ing.com/POST/payments/myspecific.host:1337 # Good
-```
-
-```scala
-def verify(dtab: Dtab): Boolean =
-  dtab.forall { entry =>
-    val prefixPath = Path.read(entry.prefix.show)
-    entry.dst.eval.exists(_.forall(_.startsWith(prefixPath)))
-  }
-``` 
-<!-- .element: class="fragment" -->
+<pre>
+<code data-trim data-noescape class="bash">
+/paymentService => /paymentService/<strong>my-explicit.host</strong>/1337 # Good</code></pre>
+<!-- .element: class="fragment" --> 
 
 ^^^
 
@@ -499,25 +554,20 @@ def verify(dtab: Dtab): Boolean =
 
 
 ```scala
-  def createMutualTlsContext(keyStore: InputStream, keyStorePassphrase: String, privateKeyPassphrase: String,
-                             trustKeystore: InputStream, trustKeystorePassphrase: String): SSLContext = {
+  def createMutualTlsContext(keyStore: InputStream, keyStorePassphrase: Array[Char], privateKeyPassphrase: Array[Char],
+                             trustKeystore: InputStream, trustKeystorePassphrase: Array[Char]): SSLContext = {
       require(Option(keyStore).isDefined, "Client keystore must be defined")
       require(Option(trustKeystore).isDefined, "Trust store must be defined")
 
-      // Create and initialize the SSLContext with key material
-      val clientKeystorePassphraseChars = keyStorePassphrase.toCharArray
-      val clientKeyPassphraseChars = privateKeyPassphrase.toCharArray
-      val trustKeystorePassphraseChars = trustKeystorePassphrase.toCharArray
-
       // First initialize the key and trust material
       val ksKeys = KeyStore.getInstance("JKS")
-      ksKeys.load(keyStore, clientKeystorePassphraseChars)
+      ksKeys.load(keyStore, clientKeystorePassphrase)
       val ksTrust = KeyStore.getInstance("JKS")
-      ksTrust.load(trustKeystore, trustKeystorePassphraseChars)
+      ksTrust.load(trustKeystore, trustKeystorePassphrase)
 
       // KeyManagers decide which key material to use
       val kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm)
-      kmf.init(ksKeys, clientKeyPassphraseChars)
+      kmf.init(ksKeys, clientKeyPassphrase)
 
       // TrustManagers decide whether to allow connections
       val tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm)
@@ -577,17 +627,18 @@ Http.client.withTransport.tls(sslClientConfiguration)
 
 ## Education
 
-* Education
-* Education
-* Education
+* *Know* what happens under the hood
+* But *don't feel* it
 
 Note:
+* Even though things should be easy, teams should know what happens under the hood
+  and be able to finetune.
 * Keep educating, teams change, best practices change, libraries change.
 * Obtaining maximum performance with maximum resilience is quite a detailed job
 
 ^^^
 
-## Don't forget those timeouts
+## Don't forget those time-outs
 
 ```scala
 .withRequestTimeout(...)
@@ -618,12 +669,12 @@ new TimeoutFilter(..., ...)
 
 ^^^
 <!-- .slide: class="center" -->
-## Load-Balancers
+## L7 Load-Balancers 
 
 Note:
 
 * Be wary when other load-balancers enter the stack. Unexpected behaviour might occur. Has effects on retries and failure accrual.
-* 
+* Disable failure-accrual, failfast, and possibly retries
 
 ^^^
 <!-- .slide: class="center" -->
@@ -643,9 +694,10 @@ Note:
 
 ^^^
 
-## Local Development is golden
+## Local Development
 
-* Reproduce retry & load-balancing issues locally
+* Very nice: Reproduce retry & load-balancing issues locally
+* mTLS everywhere complicates matters
 
 ===
 <!-- .slide: class="center" -->
@@ -674,7 +726,6 @@ Note:
 *   Support concurrent Live API Specs
 *   Move parts to Kubernetes
 *   Investigate [Tunables](https://twitter.github.io/finagle/guide/Configuration.html#tunables)
-*   Idempotent POSTs with UUIDs and framework-provided 'transactions' and use nack headers
 *   HTTP2   
 *   Investigate gRPC
 
@@ -687,9 +738,10 @@ Note:
 
 ## Summary
 
-* Security starts with Architecture, succeeds with implementation
-* Education, Education, Education
+* Security and Resilience start with Architecture, succeeds with implementation
+* Team Education is important
 * Do Monitoring
+* Maintaining a Scala Library used by Java products is challenging
 
 ^^^
 
