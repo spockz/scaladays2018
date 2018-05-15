@@ -14,6 +14,15 @@
             <li>Functional and Reactive programming teacher</li>
             <li>Global API SDK Lead Engineer @ Global API Platform</li>
         </ul>
+
+        <br>
+        <br>
+        
+        <h3>Contact</h3>
+        <ul>
+            <li><a href="https://twitter.com/alevermeulen">@alevermeulen</a></li>
+            <li><a href="https://www.linkedin.com/in/alessandrovermeulen">LinkedIn</a></li>
+        </ul>
     </div>
     <div style="text-align:center">
         <img src="images/alessandro.jpg" style="border-radius: 50%; width:50%">
@@ -76,9 +85,11 @@ Note:
 * Finagle Extensions
 * Lessons Learned
 * Additional Measures
-*
+* Future Work
 
-## Out of scope
+<p></p>
+
+#### Out of scope
 
 * Naming conventions part of Designing APIs
 * Security Scans
