@@ -164,9 +164,15 @@ Note:
     * Retries
     * Circuit-Breaking
 
+* ["Three Resilience Patterns with Twitter's Finagle"](https://www.youtube.com/watch?v=77KutKGL--E)  - JFall 2017 — Eggie and Effi
+
 ^^^
 <!-- .slide: class="center" -->
 ## Intermezzo
+
+^^^
+
+<!-- .slide: data-background="images/v3/Girl.svg" -->
 
 ^^^
 
